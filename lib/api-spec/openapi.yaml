@@ -1,15 +1,16 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Trading Dashboard API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: trading
+    description: Trading analysis operations
 paths:
   /healthz:
     get:
@@ -24,6 +25,82 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /trading/analyse:
+    post:
+      operationId: analyseMarket
+      tags: [trading]
+      summary: AI market analysis
+      description: Analyse market conditions for a symbol and return trading signal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AnalyseRequest"
+      responses:
+        "200":
+          description: Analysis result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyseResponse"
+  /trading/whale:
+    post:
+      operationId: getWhaleInfo
+      tags: [trading]
+      summary: Whale tracking analysis
+      description: AI analysis of institutional whale activity for a symbol
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WhaleRequest"
+      responses:
+        "200":
+          description: Whale analysis result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WhaleResponse"
+  /trading/sentiment:
+    post:
+      operationId: getSentiment
+      tags: [trading]
+      summary: Retail sentiment analysis
+      description: AI analysis of retail buy/sell sentiment for a symbol
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SentimentRequest"
+      responses:
+        "200":
+          description: Sentiment analysis result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SentimentResponse"
+  /trading/news:
+    get:
+      operationId: getNews
+      tags: [trading]
+      summary: Market news
+      description: Get latest market news for trading assets
+      parameters:
+        - name: symbol
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: News articles
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +110,193 @@ components:
           type: string
       required:
         - status
-
+    AnalyseRequest:
+      type: object
+      properties:
+        symbol:
+          type: string
+          description: Trading symbol (e.g. BTCUSD, XAUUSD, EURUSD, USOIL)
+        timeframe:
+          type: string
+          description: Candle timeframe (2, 5, or 10 minutes)
+        whaleData:
+          type: string
+          description: Whale activity summary
+        sentimentData:
+          type: string
+          description: Retail sentiment summary
+        newsData:
+          type: string
+          description: Recent news headlines
+      required:
+        - symbol
+        - timeframe
+    AnalyseResponse:
+      type: object
+      properties:
+        symbol:
+          type: string
+        signal:
+          type: string
+          description: "Trading signal: STRONG_BUY, BUY, NEUTRAL, SELL, STRONG_SELL"
+        signalScore:
+          type: number
+          description: Score from -100 (strong sell) to 100 (strong buy)
+        direction:
+          type: string
+          description: "UP or DOWN"
+        confidence:
+          type: number
+          description: Confidence percentage 0-100
+        reasoning:
+          type: string
+          description: Detailed reasoning for the signal
+        keyFactors:
+          type: array
+          items:
+            type: string
+          description: Key factors driving the signal
+        riskLevel:
+          type: string
+          description: "LOW, MEDIUM, HIGH"
+        timestamp:
+          type: string
+      required:
+        - symbol
+        - signal
+        - signalScore
+        - direction
+        - confidence
+        - reasoning
+        - keyFactors
+        - riskLevel
+        - timestamp
+    WhaleRequest:
+      type: object
+      properties:
+        symbol:
+          type: string
+      required:
+        - symbol
+    WhaleResponse:
+      type: object
+      properties:
+        symbol:
+          type: string
+        whaleActivity:
+          type: string
+          description: "ACCUMULATING, DISTRIBUTING, NEUTRAL"
+        institutionalBias:
+          type: string
+          description: "BULLISH, BEARISH, NEUTRAL"
+        largeOrderFlow:
+          type: number
+          description: Net large order flow score -100 to 100
+        openInterestTrend:
+          type: string
+          description: "RISING, FALLING, STABLE"
+        liquidityZones:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+        keyMetrics:
+          type: array
+          items:
+            type: string
+        timestamp:
+          type: string
+      required:
+        - symbol
+        - whaleActivity
+        - institutionalBias
+        - largeOrderFlow
+        - openInterestTrend
+        - liquidityZones
+        - summary
+        - keyMetrics
+        - timestamp
+    SentimentRequest:
+      type: object
+      properties:
+        symbol:
+          type: string
+      required:
+        - symbol
+    SentimentResponse:
+      type: object
+      properties:
+        symbol:
+          type: string
+        buyPercent:
+          type: number
+          description: Percentage of retail traders buying (0-100)
+        sellPercent:
+          type: number
+          description: Percentage of retail traders selling (0-100)
+        sentimentScore:
+          type: number
+          description: Score from -100 (extreme fear/sell) to 100 (extreme greed/buy)
+        sentiment:
+          type: string
+          description: "STRONG_BUY, BUY, NEUTRAL, SELL, STRONG_SELL"
+        crowdBias:
+          type: string
+          description: Overall crowd directional bias
+        contrarySignal:
+          type: string
+          description: Contrarian signal based on crowd behavior
+        summary:
+          type: string
+        timestamp:
+          type: string
+      required:
+        - symbol
+        - buyPercent
+        - sellPercent
+        - sentimentScore
+        - sentiment
+        - crowdBias
+        - contrarySignal
+        - summary
+        - timestamp
+    NewsArticle:
+      type: object
+      properties:
+        title:
+          type: string
+        source:
+          type: string
+        summary:
+          type: string
+        sentiment:
+          type: string
+          description: "BULLISH, BEARISH, NEUTRAL"
+        relevantSymbols:
+          type: array
+          items:
+            type: string
+        publishedAt:
+          type: string
+        url:
+          type: string
+      required:
+        - title
+        - source
+        - summary
+        - sentiment
+        - relevantSymbols
+        - publishedAt
+    NewsResponse:
+      type: object
+      properties:
+        articles:
+          type: array
+          items:
+            $ref: "#/components/schemas/NewsArticle"
+        lastUpdated:
+          type: string
+      required:
+        - articles
+        - lastUpdated

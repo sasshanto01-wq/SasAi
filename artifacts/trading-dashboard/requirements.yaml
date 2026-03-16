@@ -1,0 +1,12 @@
+packages:
+  "framer-motion": "For smooth layout animations and the gauge needle rotation"
+  "clsx": "Utility for conditionally joining classNames"
+  "tailwind-merge": "Utility for merging tailwind classes without conflicts"
+  "date-fns": "For formatting news timestamps nicely"
+
+images: []
+
+notes:
+  - "The app uses a dark 'Bloomberg terminal' inspired theme."
+  - "The API endpoints for whale and sentiment are POST requests in the schema, but act as data fetchers. We wrap them in TanStack useQuery hooks."
+  - "The AI Analyse endpoint takes the stringified data from the other endpoints to formulate its final signal."
