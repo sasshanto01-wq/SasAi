@@ -14,7 +14,7 @@ export function ChartPanel({ symbol, timeframe }: ChartPanelProps) {
     "BTCUSD": "BITSTAMP:BTCUSD",
     "XAUUSD": "OANDA:XAUUSD",
     "EURUSD": "OANDA:EURUSD",
-    "USOIL": "PEPPERSTONE:USOIL"
+    "USOIL": "TVC:USOIL"
   };
 
   const tvSymbol = tvSymbolMap[symbol] || symbol;
