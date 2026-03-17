@@ -51,7 +51,7 @@ export function ChartPanel({ symbol, timeframe }: ChartPanelProps) {
       ]
     };
     
-    script.innerHTML = JSON.stringify(config);
+    script.textContent = JSON.stringify(config);
     containerRef.current.appendChild(script);
     
   }, [symbol, timeframe, tvSymbol]);
