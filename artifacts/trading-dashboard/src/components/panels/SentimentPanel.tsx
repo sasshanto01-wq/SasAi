@@ -11,74 +11,76 @@ export function SentimentPanel({ symbol }: { symbol: string }) {
   const { data, isLoading, isError } = useSentimentData(symbol);
 
   return (
-    <Card className="col-span-1 lg:col-span-6 glass-panel flex flex-col">
-      <CardHeader className="pb-0">
-        <CardTitle className="flex items-center gap-2 text-primary">
-          <Users className="w-5 h-5" />
-          Retail Order Flow Microstructure
+    <Card className="col-span-1 lg:col-span-6 glass-panel flex flex-col border-l-2 border-l-warning/40">
+      <CardHeader className="pb-3 border-b border-white/[0.05] bg-white/[0.015]">
+        <CardTitle className="flex items-center gap-2 text-sm font-semibold text-foreground">
+          <div className="w-7 h-7 rounded-md bg-warning/10 border border-warning/20 flex items-center justify-center shrink-0">
+            <Users className="w-3.5 h-3.5 text-warning" />
+          </div>
+          Retail Sentiment Gauge
         </CardTitle>
       </CardHeader>
-      
-      <CardContent className="pt-6 flex-1 flex flex-col items-center justify-between">
+
+      <CardContent className="pt-5 flex-1 flex flex-col items-center justify-between">
         {isLoading ? (
-          <div className="w-full h-full flex flex-col items-center justify-center gap-8">
+          <div className="w-full h-full flex flex-col items-center justify-center gap-6">
             <Skeleton className="w-[260px] h-[140px] rounded-t-full" />
-            <Skeleton className="h-8 w-full rounded-full" />
-            <Skeleton className="h-20 w-full rounded-xl" />
+            <Skeleton className="h-6 w-full rounded-full" />
+            <Skeleton className="h-16 w-full rounded-xl" />
           </div>
         ) : isError || !data ? (
-          <div className="flex-1 flex items-center justify-center text-muted-foreground">
-            Failed to load sentiment data.
+          <div className="flex-1 flex items-center justify-center text-muted-foreground text-sm">
+            Unable to load sentiment data.
           </div>
         ) : (
-          <motion.div 
-            initial={{ opacity: 0 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-full flex flex-col items-center gap-8"
+            className="w-full flex flex-col items-center gap-6"
           >
-            {/* The Main Gauge */}
-            <div className="relative mt-4">
+            {/* Gauge */}
+            <div className="relative mt-3">
               <SentimentGauge score={data.sentimentScore} size="lg" />
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase border", getSignalBgColor(data.sentiment))}>
+              <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                <span className={cn("px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border", getSignalBgColor(data.sentiment))}>
                   {data.sentiment.replace('_', ' ')}
                 </span>
               </div>
             </div>
 
-            {/* Buy/Sell Split Bar */}
-            <div className="w-full mt-6 space-y-2 max-w-md">
-              <div className="flex justify-between text-sm font-display font-medium">
+            {/* Buy / Sell Split */}
+            <div className="w-full mt-5 space-y-1.5 max-w-md">
+              <div className="flex justify-between text-xs font-display font-semibold">
                 <span className="text-destructive">{data.sellPercent}% Selling</span>
-                <span className="text-muted-foreground uppercase text-xs tracking-wider">Crowd Position</span>
+                <span className="text-muted-foreground uppercase tracking-wider text-[10px]">Crowd Split</span>
                 <span className="text-success">{data.buyPercent}% Buying</span>
               </div>
-              <div className="h-3 w-full flex rounded-full overflow-hidden bg-black/50 border border-white/5">
-                <motion.div 
+              <div className="h-2.5 w-full flex rounded-full overflow-hidden bg-black/60 border border-white/[0.05]">
+                <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${data.sellPercent}%` }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  className="bg-destructive/80 h-full"
+                  transition={{ duration: 0.9, ease: "easeOut" }}
+                  className="bg-destructive/85 h-full"
                 />
-                <motion.div 
+                <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${data.buyPercent}%` }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  className="bg-success/80 h-full"
+                  transition={{ duration: 0.9, ease: "easeOut" }}
+                  className="bg-success/85 h-full"
                 />
               </div>
             </div>
 
-            {/* Bottom details */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-              <div className="bg-black/30 border border-white/5 rounded-xl p-4 flex gap-3">
-                <AlertTriangle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
+            {/* Contrarian + Summary */}
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-black/40 border border-white/[0.05] rounded-xl p-3.5 flex gap-2.5 hover:border-warning/20 transition-colors">
+                <AlertTriangle className="w-4 h-4 text-warning shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Contrarian Signal</h4>
-                  <p className="text-sm font-medium">{data.contrarySignal}</p>
+                  <h4 className="text-[10px] text-muted-foreground uppercase tracking-widest mb-1">Contrarian Signal</h4>
+                  <p className="text-xs font-medium leading-snug">{data.contrarySignal}</p>
                 </div>
               </div>
-              <div className="bg-black/30 border border-white/5 rounded-xl p-4 text-sm text-muted-foreground flex items-center">
+              <div className="bg-black/40 border border-white/[0.05] rounded-xl p-3.5 text-xs text-muted-foreground leading-relaxed">
                 {data.summary}
               </div>
             </div>
