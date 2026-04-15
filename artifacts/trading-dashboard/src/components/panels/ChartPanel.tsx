@@ -6,7 +6,15 @@ interface ChartPanelProps {
   timeframe: string;
 }
 
+const SYMBOL_LABELS: Record<string, string> = {
+  "BTCUSD": "Bitcoin / USD",
+  "XAUUSD": "Gold / USD",
+  "EURUSD": "EUR / USD",
+  "USOIL": "WTI Crude Oil",
+};
+
 export function ChartPanel({ symbol, timeframe }: ChartPanelProps) {
+  const label = SYMBOL_LABELS[symbol] || symbol;
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Map our internal symbols to TradingView symbols
@@ -57,14 +65,20 @@ export function ChartPanel({ symbol, timeframe }: ChartPanelProps) {
   }, [symbol, timeframe, tvSymbol]);
 
   return (
-    <Card className="col-span-1 border-0 rounded-none sm:rounded-2xl lg:col-span-12 h-[450px] p-1 overflow-hidden glass-panel relative">
-      {/* Decorative corner accents */}
-      <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary/30 rounded-tl-2xl pointer-events-none z-10" />
-      <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/30 rounded-tr-2xl pointer-events-none z-10" />
-      
+    <Card className="col-span-1 lg:col-span-12 h-[450px] p-1 overflow-hidden glass-panel relative border-l-2 border-l-primary/40">
+      {/* Corner accents */}
+      <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-primary/25 rounded-tl-2xl pointer-events-none z-10" />
+      <div className="absolute top-0 right-0 w-12 h-12 border-t border-r border-primary/25 rounded-tr-2xl pointer-events-none z-10" />
+
+      {/* Symbol label overlay */}
+      <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 px-3 py-1 bg-black/70 border border-white/[0.07] rounded-full backdrop-blur-sm">
+        <span className="text-[10px] font-display font-semibold text-foreground/70 tracking-widest uppercase">{label}</span>
+        <span className="ml-2 text-[10px] text-muted-foreground/50">{timeframe}m</span>
+      </div>
+
       <div className="h-full w-full rounded-xl overflow-hidden bg-black" ref={containerRef} id="tradingview_widget">
-        <div className="w-full h-full flex items-center justify-center text-muted-foreground animate-pulse">
-          Loading Chart Engine...
+        <div className="w-full h-full flex items-center justify-center text-muted-foreground/50 text-xs animate-pulse tracking-widest uppercase font-display">
+          Initializing chart engine...
         </div>
       </div>
     </Card>
