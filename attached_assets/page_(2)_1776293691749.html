@@ -1,0 +1,2415 @@
+<html lang="en"><head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Google AI Studio App</title>
+  <script src="/_aistudio-iframe.js"></script><script src="https://cdn.jsdelivr.net/npm/html2canvas-pro"></script><style>.aistudio-hover-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px rgba(128,128,128,0.6) !important; }.aistudio-active-highlight { box-shadow: inset 0 0 0 0.5px white, inset 0 0 0 1.5px #87a9ff !important; }#aistudio-focus-mode-tag { position: absolute; display: none; background: #87a9ff; border-radius: 4px; border: 0.5px solid white; z-index: 10000; text-transform: lowercase; padding: 2px 4px; color: #32302c; font-family: Inter, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; pointer-events: none; }#aistudio-hover-mode-tag { position: absolute; display: none; background: rgba(128,128,128,0.6); border-radius: 4px; border: 0.5px solid white; z-index: 10000; text-transform: lowercase; padding: 2px 4px; color: white; font-family: Inter, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; pointer-events: none; }</style><style type="text/css" data-vite-dev-id="/app/applet/src/index.css">/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-950: oklch(27.9% 0.077 45.635);
+    --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-emerald-300: oklch(84.5% 0.143 164.978);
+    --color-emerald-400: oklch(76.5% 0.177 163.223);
+    --color-emerald-500: oklch(69.6% 0.17 162.48);
+    --color-emerald-600: oklch(59.6% 0.145 163.225);
+    --color-emerald-950: oklch(26.2% 0.051 172.552);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
+    --color-indigo-300: oklch(78.5% 0.115 274.713);
+    --color-indigo-400: oklch(67.3% 0.182 276.935);
+    --color-indigo-500: oklch(58.5% 0.233 277.117);
+    --color-indigo-600: oklch(51.1% 0.262 276.966);
+    --color-rose-300: oklch(81% 0.117 11.638);
+    --color-rose-400: oklch(71.2% 0.194 13.428);
+    --color-rose-500: oklch(64.5% 0.246 16.439);
+    --color-rose-950: oklch(27.1% 0.105 12.094);
+    --color-zinc-100: oklch(96.7% 0.001 286.375);
+    --color-zinc-200: oklch(92% 0.004 286.32);
+    --color-zinc-300: oklch(87.1% 0.006 286.286);
+    --color-zinc-400: oklch(70.5% 0.015 286.067);
+    --color-zinc-500: oklch(55.2% 0.016 285.938);
+    --color-zinc-600: oklch(44.2% 0.017 285.786);
+    --color-zinc-700: oklch(37% 0.013 285.805);
+    --color-zinc-800: oklch(27.4% 0.006 286.033);
+    --color-zinc-900: oklch(21% 0.006 285.885);
+    --color-zinc-950: oklch(14.1% 0.005 285.823);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-6xl: 72rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    --leading-snug: 1.375;
+    --leading-relaxed: 1.625;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-spin: spin 1s linear infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --blur-xl: 24px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
+  .static {
+    position: static;
+  }
+  .-inset-1 {
+    inset: calc(var(--spacing) * -1);
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .inset-y-0 {
+    inset-block: calc(var(--spacing) * 0);
+  }
+  .start {
+    inset-inline-start: var(--spacing);
+  }
+  .end {
+    inset-inline-end: var(--spacing);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
+  .top-1\/2 {
+    top: calc(1 / 2 * 100%);
+  }
+  .top-2 {
+    top: calc(var(--spacing) * 2);
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .right-2 {
+    right: calc(var(--spacing) * 2);
+  }
+  .bottom-2 {
+    bottom: calc(var(--spacing) * 2);
+  }
+  .-left-\[21px\] {
+    left: calc(21px * -1);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .left-2\.5 {
+    left: calc(var(--spacing) * 2.5);
+  }
+  .z-0 {
+    z-index: 0;
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+  .mx-1 {
+    margin-inline: calc(var(--spacing) * 1);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-0\.5 {
+    margin-top: calc(var(--spacing) * 0.5);
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mr-1 {
+    margin-right: calc(var(--spacing) * 1);
+  }
+  .mr-2 {
+    margin-right: calc(var(--spacing) * 2);
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
+  }
+  .ml-5 {
+    margin-left: calc(var(--spacing) * 5);
+  }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .line-clamp-4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline {
+    display: inline;
+  }
+  .table {
+    display: table;
+  }
+  .aspect-\[2\/1\] {
+    aspect-ratio: 2/1;
+  }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
+  .h-1\.5 {
+    height: calc(var(--spacing) * 1.5);
+  }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-3\.5 {
+    height: calc(var(--spacing) * 3.5);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+  .h-\[2px\] {
+    height: 2px;
+  }
+  .h-\[50vh\] {
+    height: 50vh;
+  }
+  .h-\[76px\] {
+    height: 76px;
+  }
+  .h-\[350px\] {
+    height: 350px;
+  }
+  .h-\[440px\] {
+    height: 440px;
+  }
+  .h-auto {
+    height: auto;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .max-h-\[400px\] {
+    max-height: 400px;
+  }
+  .min-h-\[400px\] {
+    min-height: 400px;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+  .w-1\/3 {
+    width: calc(1 / 3 * 100%);
+  }
+  .w-1\/4 {
+    width: calc(1 / 4 * 100%);
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
+  }
+  .w-3\.5 {
+    width: calc(var(--spacing) * 3.5);
+  }
+  .w-3\/4 {
+    width: calc(3 / 4 * 100%);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-4\/5 {
+    width: calc(4 / 5 * 100%);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+  .w-24 {
+    width: calc(var(--spacing) * 24);
+  }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
+  }
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .w-px {
+    width: 1px;
+  }
+  .max-w-6xl {
+    max-width: var(--container-6xl);
+  }
+  .max-w-\[260px\] {
+    max-width: 260px;
+  }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+  .min-w-max {
+    min-width: max-content;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .animate-pulse {
+    animation: var(--animate-pulse);
+  }
+  .animate-spin {
+    animation: var(--animate-spin);
+  }
+  .cursor-crosshair {
+    cursor: crosshair;
+  }
+  .cursor-help {
+    cursor: help;
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .list-disc {
+    list-style-type: disc;
+  }
+  .list-none {
+    list-style-type: none;
+  }
+  .appearance-none {
+    appearance: none;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .grid-rows-\[0fr\] {
+    grid-template-rows: 0fr;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .space-y-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-4 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-8 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-x-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-visible {
+    overflow: visible;
+  }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
+  .border-y {
+    border-block-style: var(--tw-border-style);
+    border-block-width: 1px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-r {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
+  }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
+  .border-\[\#00f0ff\]\/50 {
+    border-color: color-mix(in oklab, #00f0ff 50%, transparent);
+  }
+  .border-amber-500\/20 {
+    border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+    }
+  }
+  .border-amber-500\/30 {
+    border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-500) 30%, transparent);
+    }
+  }
+  .border-emerald-500\/20 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+  }
+  .border-emerald-500\/30 {
+    border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-500) 30%, transparent);
+    }
+  }
+  .border-indigo-500\/50 {
+    border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-500) 50%, transparent);
+    }
+  }
+  .border-rose-500\/20 {
+    border-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-rose-500) 20%, transparent);
+    }
+  }
+  .border-rose-500\/30 {
+    border-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-rose-500) 30%, transparent);
+    }
+  }
+  .border-transparent {
+    border-color: transparent;
+  }
+  .border-zinc-600 {
+    border-color: var(--color-zinc-600);
+  }
+  .border-zinc-700\/30 {
+    border-color: color-mix(in srgb, oklch(37% 0.013 285.805) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-zinc-700) 30%, transparent);
+    }
+  }
+  .border-zinc-700\/40 {
+    border-color: color-mix(in srgb, oklch(37% 0.013 285.805) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-zinc-700) 40%, transparent);
+    }
+  }
+  .border-zinc-700\/50 {
+    border-color: color-mix(in srgb, oklch(37% 0.013 285.805) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-zinc-700) 50%, transparent);
+    }
+  }
+  .border-zinc-700\/80 {
+    border-color: color-mix(in srgb, oklch(37% 0.013 285.805) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-zinc-700) 80%, transparent);
+    }
+  }
+  .border-zinc-800 {
+    border-color: var(--color-zinc-800);
+  }
+  .border-zinc-800\/50 {
+    border-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-zinc-800) 50%, transparent);
+    }
+  }
+  .border-zinc-800\/80 {
+    border-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-zinc-800) 80%, transparent);
+    }
+  }
+  .border-zinc-900 {
+    border-color: var(--color-zinc-900);
+  }
+  .border-y-zinc-800\/50 {
+    border-block-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-block-color: color-mix(in oklab, var(--color-zinc-800) 50%, transparent);
+    }
+  }
+  .border-t-\[\#00f0ff\] {
+    border-top-color: #00f0ff;
+  }
+  .border-r-\[\#00f0ff\]\/30 {
+    border-right-color: color-mix(in oklab, #00f0ff 30%, transparent);
+  }
+  .border-r-zinc-800\/50 {
+    border-right-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-right-color: color-mix(in oklab, var(--color-zinc-800) 50%, transparent);
+    }
+  }
+  .border-b-\[\#00f0ff\]\/10 {
+    border-bottom-color: color-mix(in oklab, #00f0ff 10%, transparent);
+  }
+  .border-l-\[\#00f0ff\]\/50 {
+    border-left-color: color-mix(in oklab, #00f0ff 50%, transparent);
+  }
+  .border-l-indigo-500 {
+    border-left-color: var(--color-indigo-500);
+  }
+  .bg-\[\#00f0ff\] {
+    background-color: #00f0ff;
+  }
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
+  }
+  .bg-amber-500\/5 {
+    background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 5%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-500) 5%, transparent);
+    }
+  }
+  .bg-amber-500\/10 {
+    background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-500) 10%, transparent);
+    }
+  }
+  .bg-amber-500\/20 {
+    background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+    }
+  }
+  .bg-amber-500\/40 {
+    background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-500) 40%, transparent);
+    }
+  }
+  .bg-amber-950\/30 {
+    background-color: color-mix(in srgb, oklch(27.9% 0.077 45.635) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-amber-950) 30%, transparent);
+    }
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-black\/50 {
+    background-color: color-mix(in srgb, #000 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
+    }
+  }
+  .bg-black\/80 {
+    background-color: color-mix(in srgb, #000 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 80%, transparent);
+    }
+  }
+  .bg-black\/90 {
+    background-color: color-mix(in srgb, #000 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 90%, transparent);
+    }
+  }
+  .bg-blue-500\/10 {
+    background-color: color-mix(in srgb, oklch(62.3% 0.214 259.815) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-blue-500) 10%, transparent);
+    }
+  }
+  .bg-emerald-500 {
+    background-color: var(--color-emerald-500);
+  }
+  .bg-emerald-500\/5 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 5%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 5%, transparent);
+    }
+  }
+  .bg-emerald-500\/10 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 10%, transparent);
+    }
+  }
+  .bg-emerald-500\/20 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+  }
+  .bg-emerald-500\/80 {
+    background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-500) 80%, transparent);
+    }
+  }
+  .bg-emerald-600\/80 {
+    background-color: color-mix(in srgb, oklch(59.6% 0.145 163.225) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-600) 80%, transparent);
+    }
+  }
+  .bg-emerald-950\/30 {
+    background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-950) 30%, transparent);
+    }
+  }
+  .bg-indigo-500\/10 {
+    background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-500) 10%, transparent);
+    }
+  }
+  .bg-indigo-500\/20 {
+    background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-500) 20%, transparent);
+    }
+  }
+  .bg-indigo-500\/40 {
+    background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-500) 40%, transparent);
+    }
+  }
+  .bg-indigo-600 {
+    background-color: var(--color-indigo-600);
+  }
+  .bg-rose-500 {
+    background-color: var(--color-rose-500);
+  }
+  .bg-rose-500\/5 {
+    background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 5%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-500) 5%, transparent);
+    }
+  }
+  .bg-rose-500\/10 {
+    background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-500) 10%, transparent);
+    }
+  }
+  .bg-rose-500\/20 {
+    background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-500) 20%, transparent);
+    }
+  }
+  .bg-rose-500\/40 {
+    background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-500) 40%, transparent);
+    }
+  }
+  .bg-rose-500\/80 {
+    background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-500) 80%, transparent);
+    }
+  }
+  .bg-rose-950\/30 {
+    background-color: color-mix(in srgb, oklch(27.1% 0.105 12.094) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-rose-950) 30%, transparent);
+    }
+  }
+  .bg-transparent {
+    background-color: transparent;
+  }
+  .bg-zinc-700 {
+    background-color: var(--color-zinc-700);
+  }
+  .bg-zinc-700\/50 {
+    background-color: color-mix(in srgb, oklch(37% 0.013 285.805) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-700) 50%, transparent);
+    }
+  }
+  .bg-zinc-800 {
+    background-color: var(--color-zinc-800);
+  }
+  .bg-zinc-800\/20 {
+    background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-800) 20%, transparent);
+    }
+  }
+  .bg-zinc-800\/30 {
+    background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-800) 30%, transparent);
+    }
+  }
+  .bg-zinc-800\/40 {
+    background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-800) 40%, transparent);
+    }
+  }
+  .bg-zinc-800\/50 {
+    background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-800) 50%, transparent);
+    }
+  }
+  .bg-zinc-800\/80 {
+    background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-800) 80%, transparent);
+    }
+  }
+  .bg-zinc-900 {
+    background-color: var(--color-zinc-900);
+  }
+  .bg-zinc-900\/30 {
+    background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-900) 30%, transparent);
+    }
+  }
+  .bg-zinc-900\/40 {
+    background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-900) 40%, transparent);
+    }
+  }
+  .bg-zinc-900\/50 {
+    background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-900) 50%, transparent);
+    }
+  }
+  .bg-zinc-900\/60 {
+    background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-900) 60%, transparent);
+    }
+  }
+  .bg-zinc-950 {
+    background-color: var(--color-zinc-950);
+  }
+  .bg-zinc-950\/80 {
+    background-color: color-mix(in srgb, oklch(14.1% 0.005 285.823) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-zinc-950) 80%, transparent);
+    }
+  }
+  .bg-gradient-to-r {
+    --tw-gradient-position: to right in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-\[linear-gradient\(rgba\(255\,255\,255\,0\.03\)_1px\,transparent_1px\)\,linear-gradient\(90deg\,rgba\(255\,255\,255\,0\.03\)_1px\,transparent_1px\)\] {
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  }
+  .from-amber-500\/20 {
+    --tw-gradient-from: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-from: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-emerald-500\/20 {
+    --tw-gradient-from: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-from: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-rose-500\/20 {
+    --tw-gradient-from: color-mix(in srgb, oklch(64.5% 0.246 16.439) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-from: color-mix(in oklab, var(--color-rose-500) 20%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-transparent {
+    --tw-gradient-from: transparent;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .via-\[\#00f0ff\]\/50 {
+    --tw-gradient-via: color-mix(in oklab, #00f0ff 50%, transparent);
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .to-amber-400\/20 {
+    --tw-gradient-to: color-mix(in srgb, oklch(82.8% 0.189 84.429) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-to: color-mix(in oklab, var(--color-amber-400) 20%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-emerald-400\/20 {
+    --tw-gradient-to: color-mix(in srgb, oklch(76.5% 0.177 163.223) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-to: color-mix(in oklab, var(--color-emerald-400) 20%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-rose-400\/20 {
+    --tw-gradient-to: color-mix(in srgb, oklch(71.2% 0.194 13.428) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-to: color-mix(in oklab, var(--color-rose-400) 20%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-transparent {
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .bg-\[size\:20px_20px\] {
+    background-size: 20px 20px;
+  }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
+  }
+  .p-1\.5 {
+    padding: calc(var(--spacing) * 1.5);
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-1\.5 {
+    padding-inline: calc(var(--spacing) * 1.5);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * 0.5);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
+  }
+  .pt-3 {
+    padding-top: calc(var(--spacing) * 3);
+  }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
+  }
+  .pr-3 {
+    padding-right: calc(var(--spacing) * 3);
+  }
+  .pr-4 {
+    padding-right: calc(var(--spacing) * 4);
+  }
+  .pr-6 {
+    padding-right: calc(var(--spacing) * 6);
+  }
+  .pb-1 {
+    padding-bottom: calc(var(--spacing) * 1);
+  }
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
+  .pl-2\.5 {
+    padding-left: calc(var(--spacing) * 2.5);
+  }
+  .pl-6 {
+    padding-left: calc(var(--spacing) * 6);
+  }
+  .pl-8 {
+    padding-left: calc(var(--spacing) * 8);
+  }
+  .pl-11 {
+    padding-left: calc(var(--spacing) * 11);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[9px\] {
+    font-size: 9px;
+  }
+  .text-\[10px\] {
+    font-size: 10px;
+  }
+  .text-\[11px\] {
+    font-size: 11px;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-snug {
+    --tw-leading: var(--leading-snug);
+    line-height: var(--leading-snug);
+  }
+  .font-black {
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-tight {
+    --tw-tracking: var(--tracking-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+  .tracking-tighter {
+    --tw-tracking: var(--tracking-tighter);
+    letter-spacing: var(--tracking-tighter);
+  }
+  .tracking-wide {
+    --tw-tracking: var(--tracking-wide);
+    letter-spacing: var(--tracking-wide);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .tracking-widest {
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .whitespace-pre-wrap {
+    white-space: pre-wrap;
+  }
+  .text-\[\#00f0ff\] {
+    color: #00f0ff;
+  }
+  .text-\[\#00ff9d\] {
+    color: #00ff9d;
+  }
+  .text-\[\#39ff14\] {
+    color: #39ff14;
+  }
+  .text-\[\#ff003c\] {
+    color: #ff003c;
+  }
+  .text-\[\#ff8a00\] {
+    color: #ff8a00;
+  }
+  .text-amber-300 {
+    color: var(--color-amber-300);
+  }
+  .text-amber-400 {
+    color: var(--color-amber-400);
+  }
+  .text-amber-500 {
+    color: var(--color-amber-500);
+  }
+  .text-blue-400 {
+    color: var(--color-blue-400);
+  }
+  .text-blue-500 {
+    color: var(--color-blue-500);
+  }
+  .text-emerald-300 {
+    color: var(--color-emerald-300);
+  }
+  .text-emerald-400 {
+    color: var(--color-emerald-400);
+  }
+  .text-emerald-500 {
+    color: var(--color-emerald-500);
+  }
+  .text-emerald-500\/70 {
+    color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-emerald-500) 70%, transparent);
+    }
+  }
+  .text-indigo-300 {
+    color: var(--color-indigo-300);
+  }
+  .text-indigo-400 {
+    color: var(--color-indigo-400);
+  }
+  .text-rose-300 {
+    color: var(--color-rose-300);
+  }
+  .text-rose-400 {
+    color: var(--color-rose-400);
+  }
+  .text-rose-500 {
+    color: var(--color-rose-500);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .text-yellow-500 {
+    color: var(--color-yellow-500);
+  }
+  .text-zinc-100 {
+    color: var(--color-zinc-100);
+  }
+  .text-zinc-200 {
+    color: var(--color-zinc-200);
+  }
+  .text-zinc-300 {
+    color: var(--color-zinc-300);
+  }
+  .text-zinc-400 {
+    color: var(--color-zinc-400);
+  }
+  .text-zinc-500 {
+    color: var(--color-zinc-500);
+  }
+  .text-zinc-600 {
+    color: var(--color-zinc-600);
+  }
+  .text-zinc-900 {
+    color: var(--color-zinc-900);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .placeholder-zinc-500 {
+    &::placeholder {
+      color: var(--color-zinc-500);
+    }
+  }
+  .accent-indigo-500 {
+    accent-color: var(--color-indigo-500);
+  }
+  .opacity-0 {
+    opacity: 0%;
+  }
+  .opacity-20 {
+    opacity: 20%;
+  }
+  .opacity-50 {
+    opacity: 50%;
+  }
+  .opacity-80 {
+    opacity: 80%;
+  }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow\! {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)) !important;
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+  }
+  .shadow-\[0_0_15px_rgba\(0\,240\,255\,0\.3\)\] {
+    --tw-shadow: 0 0 15px var(--tw-shadow-color, rgba(0,240,255,0.3));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[0_0_15px_rgba\(99\,102\,241\,0\.15\)\] {
+    --tw-shadow: 0 0 15px var(--tw-shadow-color, rgba(99,102,241,0.15));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-inner {
+    --tw-shadow: inset 0 2px 4px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xl {
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .blur {
+    --tw-blur: blur(8px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .blur-md {
+    --tw-blur: blur(var(--blur-md));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .blur-xl {
+    --tw-blur: blur(var(--blur-xl));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_0_5px_rgba\(0\,240\,255\,0\.5\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 0 5px var(--tw-drop-shadow-color, rgba(0,240,255,0.5)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_0_8px_rgba\(0\,240\,255\,0\.8\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 0 8px var(--tw-drop-shadow-color, rgba(0,240,255,0.8)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_0_8px_rgba\(0\,255\,157\,0\.8\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 0 8px var(--tw-drop-shadow-color, rgba(0,255,157,0.8)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_0_8px_rgba\(57\,255\,20\,0\.8\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 0 8px var(--tw-drop-shadow-color, rgba(57,255,20,0.8)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_0_8px_rgba\(255\,0\,60\,0\.8\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 0 8px var(--tw-drop-shadow-color, rgba(255,0,60,0.8)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_0_8px_rgba\(255\,138\,0\,0\.8\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 0 8px var(--tw-drop-shadow-color, rgba(255,138,0,0.8)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .backdrop-blur-md {
+    --tw-backdrop-blur: blur(var(--blur-md));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-blur-sm {
+    --tw-backdrop-blur: blur(var(--blur-sm));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
+  .duration-500 {
+    --tw-duration: 500ms;
+    transition-duration: 500ms;
+  }
+  .duration-700 {
+    --tw-duration: 700ms;
+    transition-duration: 700ms;
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
+  .outline-none {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+  .group-open\:rotate-90 {
+    &:is(:where(.group):is([open], :popover-open, :open) *) {
+      rotate: 90deg;
+    }
+  }
+  .group-hover\:scale-110 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 110%;
+        --tw-scale-y: 110%;
+        --tw-scale-z: 110%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .group-hover\:grid-rows-\[1fr\] {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+  .group-hover\:bg-amber-500\/20 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+        }
+      }
+    }
+  }
+  .group-hover\:bg-blue-500\/20 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(62.3% 0.214 259.815) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-blue-500) 20%, transparent);
+        }
+      }
+    }
+  }
+  .group-hover\:bg-indigo-500\/20 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-indigo-500) 20%, transparent);
+        }
+      }
+    }
+  }
+  .group-hover\:text-zinc-300 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-zinc-300);
+      }
+    }
+  }
+  .group-hover\/candle\:opacity-100 {
+    &:is(:where(.group\/candle):hover *) {
+      @media (hover: hover) {
+        opacity: 100%;
+      }
+    }
+  }
+  .hover\:border-amber-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-amber-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:border-blue-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(62.3% 0.214 259.815) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-blue-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:border-indigo-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-indigo-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:border-zinc-600 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-zinc-600);
+      }
+    }
+  }
+  .hover\:border-zinc-700\/80 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(37% 0.013 285.805) 80%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-zinc-700) 80%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-amber-500\/10 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 10%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-amber-500) 10%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-emerald-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-emerald-500);
+      }
+    }
+  }
+  .hover\:bg-emerald-500\/10 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 10%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-emerald-500) 10%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-emerald-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-emerald-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-indigo-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-indigo-500);
+      }
+    }
+  }
+  .hover\:bg-indigo-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-indigo-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-rose-500\/10 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 10%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-rose-500) 10%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-rose-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(64.5% 0.246 16.439) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-rose-500) 30%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-zinc-600 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-zinc-600);
+      }
+    }
+  }
+  .hover\:bg-zinc-700 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-zinc-700);
+      }
+    }
+  }
+  .hover\:bg-zinc-800 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-zinc-800);
+      }
+    }
+  }
+  .hover\:bg-zinc-800\/50 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 50%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-zinc-800) 50%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-zinc-800\/60 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 60%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-zinc-800) 60%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-zinc-900\/60 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 60%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-zinc-900) 60%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:text-white {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
+  .hover\:text-zinc-200 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-zinc-200);
+      }
+    }
+  }
+  .hover\:text-zinc-300 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-zinc-300);
+      }
+    }
+  }
+  .hover\:opacity-100 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 100%;
+      }
+    }
+  }
+  .focus\:border-indigo-500\/50 {
+    &:focus {
+      border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 50%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        border-color: color-mix(in oklab, var(--color-indigo-500) 50%, transparent);
+      }
+    }
+  }
+  .focus\:ring-1 {
+    &:focus {
+      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:ring-indigo-500\/50 {
+    &:focus {
+      --tw-ring-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 50%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-ring-color: color-mix(in oklab, var(--color-indigo-500) 50%, transparent);
+      }
+    }
+  }
+  .focus\:outline-none {
+    &:focus {
+      --tw-outline-style: none;
+      outline-style: none;
+    }
+  }
+  .disabled\:opacity-50 {
+    &:disabled {
+      opacity: 50%;
+    }
+  }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+  .md\:h-16 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 16);
+    }
+  }
+  .md\:w-auto {
+    @media (width >= 48rem) {
+      width: auto;
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-cols-4 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:justify-start {
+    @media (width >= 48rem) {
+      justify-content: flex-start;
+    }
+  }
+  .md\:p-4 {
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 4);
+    }
+  }
+  .md\:px-6 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+  .md\:pb-0 {
+    @media (width >= 48rem) {
+      padding-bottom: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:text-sm {
+    @media (width >= 48rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  .md\:text-xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .lg\:col-span-4 {
+    @media (width >= 64rem) {
+      grid-column: span 4 / span 4;
+    }
+  }
+  .lg\:col-span-8 {
+    @media (width >= 64rem) {
+      grid-column: span 8 / span 8;
+    }
+  }
+  .xl\:h-\[400px\] {
+    @media (width >= 80rem) {
+      height: 400px;
+    }
+  }
+  .xl\:grid-cols-4 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+@layer utilities {
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s infinite;
+  }
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(-5%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-gradient-position {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-via {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-via-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --tw-gradient-via-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --tw-gradient-to-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
+      --tw-space-x-reverse: 0;
+      --tw-border-style: solid;
+      --tw-gradient-position: initial;
+      --tw-gradient-from: #0000;
+      --tw-gradient-via: #0000;
+      --tw-gradient-to: #0000;
+      --tw-gradient-stops: initial;
+      --tw-gradient-via-stops: initial;
+      --tw-gradient-from-position: 0%;
+      --tw-gradient-via-position: 50%;
+      --tw-gradient-to-position: 100%;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+      --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+    }
+  }
+}
+</style></head>
+  <body>
+    <div id="root"><div class="min-h-screen bg-black text-zinc-100 font-sans flex flex-col overflow-hidden"><header class="h-auto md:h-16 border-b border-zinc-800 bg-zinc-950 flex flex-col md:flex-row items-center justify-between p-3 md:px-6 shrink-0 gap-3"><div class="flex items-center gap-2 w-full md:w-auto justify-between md:justify-start"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard w-5 h-5" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg></div><h1 class="text-lg md:text-xl font-bold tracking-tight whitespace-nowrap">AI Trading Dashboard</h1></div><div class="relative md:hidden"><button class="p-2 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 rounded-lg transition-colors shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings w-5 h-5" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button><div class="absolute right-0 mt-2 w-48 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl z-50 py-1"><button class="w-full px-4 py-2 text-left text-sm text-zinc-300 hover:bg-zinc-800 hover:text-white flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download w-4 h-4" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>Download HTML</button></div></div></div><div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto no-scrollbar pb-1 md:pb-0"><div class="flex items-center gap-1 bg-zinc-900 rounded-lg p-1 border border-zinc-800 shrink-0 mr-2"><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors flex items-center gap-2 bg-zinc-800 text-white shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-4 h-4" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>Markets</button><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors flex items-center gap-2 text-zinc-400 hover:text-zinc-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot w-4 h-4" aria-hidden="true"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>Agent Diagnostics</button></div><div class="flex items-center gap-1 bg-zinc-900 rounded-lg p-1 border border-zinc-800 shrink-0"><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors text-zinc-400 hover:text-zinc-200">USOIL</button><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors bg-zinc-800 text-white shadow-sm">BTCUSD</button><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors text-zinc-400 hover:text-zinc-200">XAUUSD</button><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors text-zinc-400 hover:text-zinc-200">EURUSD</button></div><div class="w-px h-6 bg-zinc-800 mx-1 shrink-0"></div><div class="flex items-center gap-1 bg-zinc-900 rounded-lg p-1 border border-zinc-800 shrink-0"><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors text-zinc-400 hover:text-zinc-200">2m</button><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors bg-zinc-800 text-white shadow-sm">5m</button><button class="px-3 py-1.5 text-xs md:text-sm font-medium rounded-md transition-colors text-zinc-400 hover:text-zinc-200">10m</button></div><div class="relative hidden md:block ml-2"><button class="p-2 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 rounded-lg transition-colors shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings w-5 h-5" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div></header><main class="flex-1 p-3 md:p-4 flex flex-col gap-4 overflow-y-auto"><div class="w-full h-[50vh] min-h-[400px] bg-zinc-900/50 rounded-xl border border-zinc-800 overflow-hidden relative shrink-0"><div class="w-full h-full relative"><div style="display: contents; height: calc(100% - 32px);"><div id="tradingview_b8f69" style="height: 100%;"><div id="tradingview_e210c-wrapper" style="position: relative; box-sizing: content-box; font-family: -apple-system, BlinkMacSystemFont, &quot;Trebuchet MS&quot;, Roboto, Ubuntu, sans-serif; margin: 0px auto !important; padding: 0px !important; width: 100%; height: 100%;"><iframe title="advanced chart TradingView widget" lang="en" id="tradingview_e210c" frameborder="0" allowtransparency="true" scrolling="no" allowfullscreen="true" src="https://s.tradingview.com/widgetembed/?hideideas=1&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en#%7B%22symbol%22%3A%22BINANCE%3ABTCUSDT%22%2C%22frameElementId%22%3A%22tradingview_e210c%22%2C%22interval%22%3A%225%22%2C%22hide_side_toolbar%22%3A%220%22%2C%22allow_symbol_change%22%3A%220%22%2C%22save_image%22%3A%220%22%2C%22backgroundColor%22%3A%22%2318181b%22%2C%22gridColor%22%3A%22%2327272a%22%2C%22studies%22%3A%22%5B%5D%22%2C%22theme%22%3A%22dark%22%2C%22style%22%3A%221%22%2C%22timezone%22%3A%22UTC%22%2C%22withdateranges%22%3A%221%22%2C%22studies_overrides%22%3A%22%7B%7D%22%2C%22utm_source%22%3A%22ais-dev-jo7c73x2rna6jjkhlsxjim-381837121531.asia-east1.run.app%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22chart%22%2C%22utm_term%22%3A%22BINANCE%3ABTCUSDT%22%2C%22page-uri%22%3A%22ais-dev-jo7c73x2rna6jjkhlsxjim-381837121531.asia-east1.run.app%2F%3Forigin%3Dhttps%253A%252F%252Faistudio.google.com%22%7D" style="width: 100%; height: 100%; margin: 0px !important; padding: 0px !important;"></iframe></div></div><div class="tradingview-widget-copyright" style="font-size: 13px; line-height: 32px; text-align: center; font-family: &quot;Trebuchet MS&quot;, Arial, sans-serif; color: rgb(157, 178, 189); width: 100%;"><a href="https://www.tradingview.com/symbols/BINANCE:BTCUSDT?utm_source=ais-dev-jo7c73x2rna6jjkhlsxjim-381837121531.asia-east1.run.app&amp;utm_medium=widget_new&amp;utm_campaign=chart&amp;utm_term=BINANCE%3ABTCUSDT" target="_blank" style="text-decoration: none; color: rgb(157, 178, 189);"><span style="color: rgb(41, 98, 255);">BINANCE:BTCUSDT Chart </span></a>By TradingView</div></div></div></div><div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 shrink-0 pb-4"><div class="h-[350px] xl:h-[400px]"><div class="h-full flex flex-col bg-zinc-900/50 rounded-xl border border-zinc-800 p-4 overflow-hidden"><div class="flex items-center justify-between mb-4"><h3 class="text-lg font-semibold text-zinc-100 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-5 h-5 text-indigo-400" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>Whale Tracking</h3><span class="text-xs font-medium px-2 py-1 bg-zinc-800 text-zinc-400 rounded-md">Live Feed</span></div><div class="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar"><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-emerald-500/10 text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-4 h-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">149 BTC</div><div class="text-xs text-zinc-500">CME Group • 04:52:16</div></div></div><div class="text-right"><div class="text-sm font-bold text-emerald-400">+$9.69M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-emerald-500/10 text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-4 h-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">147 BTC</div><div class="text-xs text-zinc-500">Coinbase Pro • 04:52:13</div></div></div><div class="text-right"><div class="text-sm font-bold text-emerald-400">+$9.55M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-emerald-500/10 text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-4 h-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">531 BTC</div><div class="text-xs text-zinc-500">CME Group • 04:52:10</div></div></div><div class="text-right"><div class="text-sm font-bold text-emerald-400">+$34.52M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-emerald-500/10 text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-4 h-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">89 BTC</div><div class="text-xs text-zinc-500">Kraken • 04:52:09</div></div></div><div class="text-right"><div class="text-sm font-bold text-emerald-400">+$5.79M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-rose-500/10 text-rose-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right w-4 h-4" aria-hidden="true"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">218 BTC</div><div class="text-xs text-zinc-500">OTC Desk • 04:52:09</div></div></div><div class="text-right"><div class="text-sm font-bold text-rose-400">-$14.17M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-rose-500/10 text-rose-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right w-4 h-4" aria-hidden="true"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">209 BTC</div><div class="text-xs text-zinc-500">CME Group • 04:52:09</div></div></div><div class="text-right"><div class="text-sm font-bold text-rose-400">-$13.59M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-emerald-500/10 text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-4 h-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">463 BTC</div><div class="text-xs text-zinc-500">Binance • 04:52:09</div></div></div><div class="text-right"><div class="text-sm font-bold text-emerald-400">+$30.09M</div></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-zinc-800/50 border border-zinc-700/50"><div class="flex items-center gap-3"><div class="p-2 rounded-full bg-emerald-500/10 text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-4 h-4" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div><div><div class="text-sm font-medium text-zinc-200">269 BTC</div><div class="text-xs text-zinc-500">Coinbase Pro • 04:52:09</div></div></div><div class="text-right"><div class="text-sm font-bold text-emerald-400">+$17.48M</div></div></div></div></div></div><div class="h-[350px] xl:h-[400px]"><div class="h-full flex flex-col bg-black/80 backdrop-blur-md rounded-xl border border-zinc-800/80 p-4 relative overflow-hidden group"><div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none opacity-20"></div><div class="absolute inset-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00f0ff]/50 to-transparent pointer-events-none z-0" style="top: 96.55%;"></div><div class="flex items-center justify-between mb-4 relative z-10"><div class="flex items-center gap-2"><div class="relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-5 h-5 text-[#00f0ff]" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg><div class="absolute inset-0 bg-[#00f0ff] blur-md"></div></div><h3 class="text-sm font-mono font-bold text-zinc-100 tracking-widest uppercase">[ Retail_Sentiment ]</h3></div><div class="flex items-center space-x-2 text-xs font-mono font-bold px-3 py-1 bg-black/50 border border-zinc-800 rounded-sm"><span class="text-zinc-500">SYS.STAT:</span><span class="text-[#00f0ff] drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus w-3 h-3 inline mr-1" aria-hidden="true"><path d="M5 12h14"></path></svg>53<span class="text-zinc-600">/100</span></span></div></div><div class="flex-1 flex flex-col items-center justify-center relative z-10"><div class="relative w-full max-w-[260px] aspect-[2/1] overflow-visible mb-4"><svg viewBox="0 0 200 110" class="w-full h-full overflow-visible"><defs><filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2" result="blur"></feGaussianBlur><feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite></filter></defs><path d="M 198 100 A 98 98 0 0 0 2 99.99999999999999 L 3 99.99999999999999 A 97 97 0 0 1 197 100 Z" fill="#3f3f46" opacity="0.5"></path><path d="M 25.38661847004626 49.67263868763278 A 90 90 0 0 0 10 99.99999999999999 L 25 99.99999999999999 A 75 75 0 0 1 37.82218205837188 58.060532239693984 Z" fill="#ff003c" opacity="0.3" filter="" class="transition-all duration-500 hover:opacity-100 cursor-crosshair"></path><path d="M 69.21818710068982 15.427664129268237 A 90 90 0 0 0 27.188470506254745 47.099327293677405 L 39.32372542187895 55.91610607806451 A 75 75 0 0 1 74.34848925057484 29.523053441056874 Z" fill="#ff8a00" opacity="0.3" filter="" class="transition-all duration-500 hover:opacity-100 cursor-crosshair"></path><path d="M 127.81152949374527 14.404913533436186 A 90 90 0 0 0 72.18847050625473 14.404913533436172 L 76.82372542187895 28.670761277863477 A 75 75 0 0 1 123.17627457812105 28.67076127786349 Z" fill="#00f0ff" opacity="1" filter="url(#glow)" class="transition-all duration-500 hover:opacity-100 cursor-crosshair"></path><path d="M 172.81152949374527 47.09932729367742 A 90 90 0 0 0 130.78181289931018 15.427664129268251 L 125.65151074942516 29.523053441056874 A 75 75 0 0 1 160.67627457812105 55.916106078064516 Z" fill="#00ff9d" opacity="0.3" filter="" class="transition-all duration-500 hover:opacity-100 cursor-crosshair"></path><path d="M 190 100 A 90 90 0 0 0 174.61338152995376 49.67263868763278 L 162.17781794162812 58.060532239693984 A 75 75 0 0 1 175 100 Z" fill="#39ff14" opacity="0.3" filter="" class="transition-all duration-500 hover:opacity-100 cursor-crosshair"></path><path d="M 165 100 A 65 65 0 0 0 35 99.99999999999999 L 36 99.99999999999999 A 64 64 0 0 1 164 100 Z" fill="#3f3f46" opacity="0.5"></path><line x1="8" y1="99.99999999999999" x2="27" y2="99.99999999999999" stroke="#18181b" stroke-width="2"></line><line x1="24.63801192541277" y1="47.23096785570373" x2="40.20190076690361" y2="58.128920146373616" stroke="#18181b" stroke-width="2"></line><line x1="70.04772978994161" y1="13.012291044862849" x2="76.23352472462759" y2="30.977143981249867" stroke="#18181b" stroke-width="2"></line><line x1="129.95227021005843" y1="13.012291044862863" x2="123.76647527537244" y2="30.97714398124988" stroke="#18181b" stroke-width="2"></line><line x1="175.36198807458726" y1="47.23096785570377" x2="159.7980992330964" y2="58.12892014637364" stroke="#18181b" stroke-width="2"></line><line x1="192" y1="100" x2="173" y2="100" stroke="#18181b" stroke-width="2"></line><text x="10" y="105" fill="#ff003c" font-size="8" font-family="monospace" font-weight="bold" class="pointer-events-none tracking-widest">DUMP</text><text x="190" y="105" fill="#39ff14" font-size="8" font-family="monospace" font-weight="bold" text-anchor="end" class="pointer-events-none tracking-widest">PUMP</text><g class="pointer-events-none" style="transform-origin: 50% 50%; transform: rotate(6.05951deg); transform-box: fill-box;"><path d="M 98 100 L 100 15 L 102 100 Z" fill="#00f0ff" opacity="0.3" filter="url(#glow)"></path><path d="M 99.5 100 L 100 15 L 100.5 100 Z" fill="#ffffff"></path><circle cx="100" cy="100" r="12" fill="#09090b" stroke="#00f0ff" stroke-width="2" filter="url(#glow)"></circle><circle cx="100" cy="100" r="4" fill="#00f0ff"></circle><line x1="94" y1="100" x2="106" y2="100" stroke="#00f0ff" stroke-width="1"></line><line x1="100" y1="94" x2="100" y2="106" stroke="#00f0ff" stroke-width="1"></line></g></svg></div><div class="relative mt-2"><div class="absolute inset-0 bg-black/50 blur-md rounded-full"></div><div class="relative px-6 py-1.5 border border-zinc-800 bg-black/80 rounded-sm font-mono text-sm font-bold tracking-widest uppercase text-[#00f0ff] drop-shadow-[0_0_8px_rgba(0,240,255,0.8)]">Neutral Zone</div></div><div class="w-full mt-6 flex justify-between items-end text-[10px] text-zinc-500 font-mono px-2 uppercase tracking-widest"><div class="flex flex-col items-start"><span class="text-zinc-600 mb-1">MIN_VAL</span><span class="text-[#ff003c]">0.00</span></div><div class="flex flex-col items-center"><span class="text-zinc-600 mb-1">VOL_METRIC</span><span class="text-[#00f0ff] drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">80.1K MENTIONS</span></div><div class="flex flex-col items-end"><span class="text-zinc-600 mb-1">MAX_VAL</span><span class="text-[#39ff14]">100.0</span></div></div></div></div></div><div class="h-[350px] xl:h-[400px]"><div class="h-full flex flex-col bg-zinc-900/50 rounded-xl border border-zinc-800 p-4 overflow-hidden"><div class="flex items-center justify-between mb-4"><h3 class="text-lg font-semibold text-zinc-100 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-newspaper w-5 h-5 text-amber-400" aria-hidden="true"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="10" y="6" rx="1"></rect></svg>Live Market News</h3><span class="text-xs font-medium px-2 py-1 bg-zinc-800 text-zinc-400 rounded-md">Aggregated</span></div><div class="flex gap-2 mb-4"><div class="relative flex-1"><select class="w-full bg-zinc-800/50 border border-zinc-700/50 text-zinc-300 text-xs rounded-md pl-2 pr-6 py-1.5 appearance-none focus:outline-none focus:border-indigo-500/50 transition-colors"><option value="all">All Impacts</option><option value="high">High Impact</option><option value="medium">Medium Impact</option><option value="low">Low Impact</option></select><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-funnel w-3 h-3 text-zinc-500 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg></div><div class="relative flex-1"><select class="w-full bg-zinc-800/50 border border-zinc-700/50 text-zinc-300 text-xs rounded-md pl-2 pr-6 py-1.5 appearance-none focus:outline-none focus:border-indigo-500/50 transition-colors"><option value="all">All Sources</option><option value="Investing.com">Investing.com</option><option value="Forex.com">Forex.com</option><option value="FXStreet">FXStreet</option><option value="DailyFX">DailyFX</option><option value="TradingView">TradingView</option><option value="DailyForex">DailyForex</option><option value="Cointelegraph">Cointelegraph</option><option value="MarketPulse">MarketPulse</option><option value="altFINS">altFINS</option><option value="Finviz">Finviz</option></select><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-funnel w-3 h-3 text-zinc-500 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg></div></div><div class="flex-1 overflow-y-auto pr-2 space-y-3 custom-scrollbar"><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">Forex.com</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">Just now</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Regulatory developments could impact digital asset markets</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-400">high Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">DailyForex</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">0m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Expert technical commentary suggests a potential reversal</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">low Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">DailyFX</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">5m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: AI-powered sentiment scores indicate momentum shift</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">low Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">DailyFX</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">10m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Geopolitical tensions in the Middle East affect supply chains</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">low Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">DailyFX</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">15m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Commodity prices react to unexpected inventory drawdowns</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">low Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">altFINS</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">20m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Retail sentiment shifts as speculators react to monetary policy</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">low Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">TradingView</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">25m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Institutional ETF inflows surge ahead of key inflation data</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400">medium Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">DailyFX</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">30m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Retail sentiment shifts as speculators react to monetary policy</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400">medium Impact</span></div></div><div class="p-3 rounded-lg bg-zinc-800/40 hover:bg-zinc-800/60 transition-colors border border-zinc-700/30"><div class="flex items-start justify-between gap-2 mb-1"><span class="text-xs font-semibold text-indigo-400">FXStreet</span><span class="text-[10px] text-zinc-500 whitespace-nowrap">35m ago</span></div><p class="text-sm text-zinc-200 leading-snug">BTCUSD: Expert technical commentary suggests a potential reversal</p><div class="mt-2 flex items-center"><span class="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-400">high Impact</span></div></div></div></div></div><div class="h-[350px] xl:h-[400px]"><div class="h-full flex flex-col bg-zinc-900/50 rounded-xl border border-zinc-800 p-4 overflow-hidden"><div class="flex items-center justify-between mb-4 shrink-0"><h3 class="text-lg font-semibold text-zinc-100 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot w-5 h-5 text-emerald-400" aria-hidden="true"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>AI Agent Analyzer</h3><div class="flex items-center gap-2"><div class="flex items-center gap-1.5 bg-zinc-800/80 border border-zinc-700/80 rounded-md px-2 py-1 transition-colors hover:border-zinc-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-3.5 h-3.5 text-emerald-500/70" aria-hidden="true"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg><select class="bg-transparent text-zinc-300 text-xs font-medium focus:outline-none cursor-pointer appearance-none pr-4" title="Schedule Analysis Interval" style="background-image: url(&quot;data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239ca3af%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E&quot;); background-repeat: no-repeat; background-position: right center; background-size: 8px;"><option value="0">Manual Only</option><option value="30000">Every 30s</option><option value="60000">Every 1m</option><option value="300000">Every 5m</option><option value="900000">Every 15m</option></select></div><button class="p-1.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700/80 rounded-md text-zinc-400 transition-colors disabled:opacity-50" title="Force Refresh Now"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw w-4 h-4" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg></button></div></div><div class="flex-1 overflow-y-auto custom-scrollbar pr-2 pb-2"><div class="space-y-8 mt-2"><div class="grid grid-cols-2 gap-4"><div class="flex flex-col items-center justify-center p-4 bg-zinc-900/40 rounded-xl border border-zinc-800/50 shadow-sm transition-all duration-300"><div class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mb-3">Market Verdict</div><div class="flex items-center justify-center gap-2 text-2xl font-black tracking-tight text-emerald-500"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-6 h-6" aria-hidden="true"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg>BULLISH</div></div><div class="flex flex-col items-center justify-center p-4 rounded-xl border shadow-lg relative overflow-hidden transition-all duration-500 group/candle bg-emerald-500/5 border-emerald-500/20 hover:bg-emerald-500/10"><div class="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-emerald-400/20 blur-xl opacity-0 group-hover/candle:opacity-100 transition-opacity duration-700"></div><div class="relative z-10 text-[10px] text-zinc-500 uppercase tracking-widest font-bold mb-3">Next 5m Candle</div><div class="relative z-10 flex items-center gap-2 text-2xl font-black tracking-tighter text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up w-7 h-7 animate-bounce-subtle" aria-hidden="true"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg>STRONG UP</div><div class="relative z-10 text-[11px] font-mono text-zinc-400 mt-2 bg-zinc-950/80 px-3 py-1 rounded-full border border-zinc-800/50 backdrop-blur-sm">87% CONFIDENCE</div></div></div><div><h4 class="text-[11px] text-zinc-400 uppercase tracking-widest font-bold mb-4 border-b border-zinc-800/80 pb-2">Signal Breakdown</h4><div class="space-y-4"><div class="group bg-zinc-800/30 p-4 rounded-lg border border-zinc-700/40 hover:border-indigo-500/30 hover:bg-zinc-800/50 transition-all duration-300 cursor-help"><div class="flex items-center gap-3 mb-2"><div class="p-2 bg-indigo-500/10 rounded-md text-indigo-400 group-hover:bg-indigo-500/20 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity w-4 h-4" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg></div><span class="text-xs font-bold text-zinc-200 tracking-wide uppercase">Whale Tracking</span></div><p class="text-sm text-zinc-400 leading-relaxed pl-11">Heavy accumulation detected in the $1M-$5M tier for BTCUSD. 3 large OTC buys in the last hour indicate institutional positioning.</p><div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out"><div class="overflow-hidden"><div class="pl-11 pt-3 mt-3 border-t border-zinc-700/50 border-dashed"><span class="block text-[10px] text-indigo-400 uppercase font-bold tracking-wider mb-1">Deep Dive Analysis</span><p class="text-xs text-zinc-300 leading-relaxed">Net exchange outflows are accelerating. Wallet clustering algorithms show accumulation by entities with a &gt;70% historical win rate.</p></div></div></div></div><div class="group bg-zinc-800/30 p-4 rounded-lg border border-zinc-700/40 hover:border-blue-500/30 hover:bg-zinc-800/50 transition-all duration-300 cursor-help"><div class="flex items-center gap-3 mb-2"><div class="p-2 bg-blue-500/10 rounded-md text-blue-400 group-hover:bg-blue-500/20 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-4 h-4" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></div><span class="text-xs font-bold text-zinc-200 tracking-wide uppercase">Retail Sentiment</span></div><p class="text-sm text-zinc-400 leading-relaxed pl-11">Retail is capitulating (Sentiment Score: 22/100). High fear index presents a classic contrarian liquidity pool.</p><div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out"><div class="overflow-hidden"><div class="pl-11 pt-3 mt-3 border-t border-zinc-700/50 border-dashed"><span class="block text-[10px] text-blue-400 uppercase font-bold tracking-wider mb-1">Deep Dive Analysis</span><p class="text-xs text-zinc-300 leading-relaxed">Social media sentiment algorithms detect peak fear words. Funding rates are deeply negative, indicating retail is heavily shorting the bottom.</p></div></div></div></div><div class="group bg-zinc-800/30 p-4 rounded-lg border border-zinc-700/40 hover:border-amber-500/30 hover:bg-zinc-800/50 transition-all duration-300 cursor-help"><div class="flex items-center gap-3 mb-2"><div class="p-2 bg-amber-500/10 rounded-md text-amber-400 group-hover:bg-amber-500/20 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-newspaper w-4 h-4" aria-hidden="true"><path d="M15 18h-5"></path><path d="M18 14h-8"></path><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"></path><rect width="8" height="4" x="10" y="6" rx="1"></rect></svg></div><span class="text-xs font-bold text-zinc-200 tracking-wide uppercase">Live Market News</span></div><p class="text-sm text-zinc-400 leading-relaxed pl-11">Regulatory headwinds clearing; institutional ETF inflows accelerating according to recent breaking headlines.</p><div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out"><div class="overflow-hidden"><div class="pl-11 pt-3 mt-3 border-t border-zinc-700/50 border-dashed"><span class="block text-[10px] text-amber-400 uppercase font-bold tracking-wider mb-1">Deep Dive Analysis</span><p class="text-xs text-zinc-300 leading-relaxed">Recent SEC filings and macro data releases suggest a favorable environment for risk assets, overriding short-term technical weakness.</p></div></div></div></div></div></div><div><h4 class="text-[11px] text-zinc-400 uppercase tracking-widest font-bold mb-4 border-b border-zinc-800/80 pb-2">Cross-Panel Synthesis</h4><div class="bg-zinc-900/60 p-4 rounded-lg border-l-2 border-l-indigo-500 border-y border-r border-y-zinc-800/50 border-r-zinc-800/50 shadow-inner"><p class="text-sm text-zinc-300 leading-relaxed font-medium">Whales are aggressively absorbing retail panic selling. Panel 4 (News) acts as a fundamental catalyst for the smart money accumulation phase identified in Panel 2. This divergence historically precedes a 5-8% upside expansion on the 5m timeframe.</p></div></div><div class="pb-4"><h4 class="text-[11px] text-zinc-400 uppercase tracking-widest font-bold mb-4 border-b border-zinc-800/80 pb-2">Actionable Intelligence</h4><div class="p-4 rounded-lg border font-mono text-xs leading-relaxed shadow-lg relative overflow-hidden bg-emerald-950/30 border-emerald-500/30 text-emerald-300"><div class="absolute top-0 left-0 w-1 h-full bg-emerald-500"></div><div class="pl-2"><span class="opacity-50 mr-2">&gt;</span>Initiate long positions at current levels. Set tight stops below the local demand zone. Do not wait for retail sentiment to recover before entry.</div></div></div></div></div></div></div></div></main></div></div>
+    <script type="module" src="/src/main.tsx"></script>
+  
+
+
+<style>.tradingview-widget-copyright {font-size: 13px !important; line-height: 32px !important; text-align: center !important; vertical-align: middle !important; font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif !important; color: #B2B5BE !important;} .tradingview-widget-copyright .blue-text {color: #2962FF !important;} .tradingview-widget-copyright a {text-decoration: none !important; color: #B2B5BE !important;} .tradingview-widget-copyright a:visited {color: #B2B5BE !important;} .tradingview-widget-copyright a:hover .blue-text {color: #1E53E5 !important;} .tradingview-widget-copyright a:active .blue-text {color: #1848CC !important;} .tradingview-widget-copyright a:visited .blue-text {color: #2962FF !important;}</style></body></html>
