@@ -102,3 +102,60 @@ export interface NewsResponse {
 export type GetNewsParams = {
   symbol?: string;
 };
+
+export interface StockAnalyzeRequest {
+  ticker: string;
+}
+
+export interface StockAnalyzeResponse {
+  ticker: string;
+  companyName: string;
+  exchange: string;
+  sector: string;
+  industry: string;
+  currentPrice: number | null;
+  previousClose: number | null;
+  change: number | null;
+  changePercent: number | null;
+  marketCap: string | null;
+  pe: number | null;
+  forwardPE: number | null;
+  eps: number | null;
+  beta: number | null;
+  week52High: number | null;
+  week52Low: number | null;
+  dividendYield: number | null;
+  revenueGrowth: number | null;
+  grossMargin: number | null;
+  profitMargin: number | null;
+  operatingMargin: number | null;
+  returnOnEquity: number | null;
+  debtToEquity: number | null;
+  targetMeanPrice: number | null;
+  recommendationKey: string;
+  analystCounts: {
+    strongBuy: number;
+    buy: number;
+    hold: number;
+    sell: number;
+    strongSell: number;
+  };
+  hasRealData: boolean;
+  verdict: string;
+  verdictScore: number;
+  confidence: number;
+  priceTargetLow: number | null;
+  priceTargetHigh: number | null;
+  fundamentalScore: number;
+  technicalScore: number;
+  riskLevel: string;
+  executiveSummary: string;
+  bullCase: string;
+  bearCase: string;
+  keyStrengths: string[];
+  keyRisks: string[];
+  catalysts: string[];
+  valuationComment: string;
+  disclaimer: string;
+  timestamp: string;
+}

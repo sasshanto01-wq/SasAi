@@ -4,6 +4,7 @@ import {
   getSentiment, 
   getNews, 
   analyseMarket,
+  analyzeStock,
 } from "@workspace/api-client-react";
 import type { 
   WhaleResponse, 
@@ -64,6 +65,14 @@ export function useAnalyseMarketMutation() {
         sentimentData: sentimentData ? JSON.stringify(sentimentData) : undefined,
         newsData: newsData ? JSON.stringify(newsData.articles.slice(0, 5)) : undefined,
       });
+    }
+  });
+}
+
+export function useStockAnalysisMutation() {
+  return useMutation({
+    mutationFn: async (ticker: string) => {
+      return await analyzeStock({ ticker: ticker.trim().toUpperCase() });
     }
   });
 }
