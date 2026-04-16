@@ -91,6 +91,25 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+### `artifacts/trading-dashboard` (`@workspace/trading-dashboard`)
+
+React + Vite trading dashboard. "NEXUS TERMINAL" — multi-asset intelligence for BTCUSD, XAUUSD, EURUSD, USOIL.
+
+**Panels:**
+- `ChartPanel` — TradingView widget with live candlestick charts
+- `WhalePanel` — AI-generated institutional flow tracker
+- `SentimentPanel` — AI-generated retail sentiment gauge with donut chart
+- `NewsPanel` — AI-generated market news with live indicator
+- `AnalysePanel` — AI strategic synthesis (combines whale + sentiment + news → trade signal)
+- `StockAnalyzerPanel` — AI deep equity research for any stock ticker (fetches live Yahoo Finance data + GPT analysis)
+
+**Stock Analyzer API flow:**
+`POST /api/trading/stock-analyze` → fetches Yahoo Finance v8 chart + v10 quoteSummary → passes real fundamentals to OpenAI → returns verdict (BUY/HOLD/SELL), scores, bull/bear case, catalysts, metrics.
+
+**Hooks:** `use-trading-api.ts` — wraps all API calls with React Query mutations/queries.
+
+**Important:** Do NOT import `zod` directly in `api-server` routes — use `@workspace/api-zod` schemas or plain validation (zod is not a direct dep of `api-server`). When manually adding features (bypassing orval codegen), add types to `lib/api-client-react/src/generated/api.schemas.ts` and functions to `lib/api-client-react/src/generated/api.ts`.
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.

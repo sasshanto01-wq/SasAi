@@ -26,6 +26,8 @@ import type {
   SentimentResponse,
   WhaleRequest,
   WhaleResponse,
+  StockAnalyzeRequest,
+  StockAnalyzeResponse,
 } from "./api.schemas";
 
 import { customFetch } from "../custom-fetch";
@@ -441,6 +443,26 @@ export type GetNewsQueryError = ErrorType<unknown>;
 /**
  * @summary Market news
  */
+
+/**
+ * AI-powered deep stock analysis for any ticker
+ * @summary Stock Analyzer
+ */
+export const getAnalyzeStockUrl = () => {
+  return `/api/trading/stock-analyze`;
+};
+
+export const analyzeStock = async (
+  stockAnalyzeRequest: StockAnalyzeRequest,
+  options?: RequestInit,
+): Promise<StockAnalyzeResponse> => {
+  return customFetch<StockAnalyzeResponse>(getAnalyzeStockUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(stockAnalyzeRequest),
+  });
+};
 
 export function useGetNews<
   TData = Awaited<ReturnType<typeof getNews>>,

@@ -4,6 +4,7 @@ import { WhalePanel } from '@/components/panels/WhalePanel';
 import { SentimentPanel } from '@/components/panels/SentimentPanel';
 import { NewsPanel } from '@/components/panels/NewsPanel';
 import { AnalysePanel } from '@/components/panels/AnalysePanel';
+import { StockAnalyzerPanel } from '@/components/panels/StockAnalyzerPanel';
 import { LayoutDashboard, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -89,6 +90,9 @@ export default function Dashboard() {
           {/* Row 3: News & AI Synthesis */}
           <NewsPanel symbol={activeSymbol} />
           <AnalysePanel symbol={activeSymbol} timeframe={activeTimeframe} />
+
+          {/* Row 4: AI Stock Analyzer */}
+          <StockAnalyzerPanel />
 
         </div>
       </main>
