@@ -1,4 +1,4 @@
-import { Router, type IRouter } from "express";
+import { Router, type IRouter, type Request, type Response, type NextFunction } from "express";
 import { exec } from "node:child_process";
 import { promisify } from "node:util";
 import path from "node:path";
@@ -59,7 +59,61 @@ function shellEscape(value: string): string {
   return `'${value.replace(/'/g, "'\\''")}'`;
 }
 
-router.post("/sync", async (req, res) => {
+function getAllowedHosts(): string[] {
+  const raw = [
+    process.env.REPLIT_DEV_DOMAIN,
+    ...(process.env.REPLIT_DOMAINS?.split(",") ?? []),
+  ]
+    .map((h) => h?.trim())
+    .filter((h): h is string => !!h && h.length > 0);
+  // Always allow loopback for local debugging from the same machine.
+  return [...new Set([...raw, "localhost", "127.0.0.1"])];
+}
+
+function hostFromUrl(value: string | undefined): string | null {
+  if (!value) return null;
+  try {
+    return new URL(value).host.toLowerCase().split(":")[0];
+  } catch {
+    return null;
+  }
+}
+
+function authorizeSync(req: Request, res: Response, next: NextFunction) {
+  const configuredSecret = process.env.GIT_SYNC_SECRET;
+  if (configuredSecret) {
+    const provided = req.header("x-git-sync-secret");
+    if (!provided || provided !== configuredSecret) {
+      res.status(401).json({
+        ok: false,
+        status: "failed",
+        pushedAt: new Date().toISOString(),
+        error: "Unauthorized: missing or invalid x-git-sync-secret header",
+      });
+      return;
+    }
+  }
+
+  const allowed = getAllowedHosts().map((h) => h.toLowerCase());
+  const originHost = hostFromUrl(req.header("origin"));
+  const refererHost = hostFromUrl(req.header("referer"));
+  const sameOrigin = (host: string | null) =>
+    host !== null && allowed.includes(host);
+
+  if (!sameOrigin(originHost) && !sameOrigin(refererHost)) {
+    res.status(403).json({
+      ok: false,
+      status: "failed",
+      pushedAt: new Date().toISOString(),
+      error: "Forbidden: cross-origin requests are not allowed for this endpoint",
+    });
+    return;
+  }
+
+  next();
+}
+
+router.post("/sync", authorizeSync, async (req, res) => {
   const pushedAt = new Date().toISOString();
   try {
     const body = SyncGitBody.parse(req.body ?? {});
