@@ -102,6 +102,30 @@ export const GetSentimentResponse = zod.object({
 });
 
 /**
+ * Commits all local changes and pushes to the configured GitHub remote
+ * @summary Sync local changes to GitHub
+ */
+export const SyncGitBody = zod.object({
+  message: zod.string().optional().describe("Optional commit message override"),
+});
+
+export const SyncGitResponse = zod.object({
+  ok: zod.boolean(),
+  status: zod.string().describe("pushed, nothing_to_commit, or failed"),
+  commitSha: zod
+    .string()
+    .optional()
+    .describe("SHA of the new commit (when one was created)"),
+  commitMessage: zod.string().optional(),
+  pushedAt: zod.string(),
+  details: zod
+    .string()
+    .optional()
+    .describe("Human-readable details (e.g. git output snippet)"),
+  error: zod.string().optional(),
+});
+
+/**
  * Get latest market news for trading assets
  * @summary Market news
  */

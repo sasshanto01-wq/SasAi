@@ -20,14 +20,14 @@ import type {
   AnalyseRequest,
   AnalyseResponse,
   GetNewsParams,
+  GitSyncRequest,
+  GitSyncResponse,
   HealthStatus,
   NewsResponse,
   SentimentRequest,
   SentimentResponse,
   WhaleRequest,
   WhaleResponse,
-  StockAnalyzeRequest,
-  StockAnalyzeResponse,
 } from "./api.schemas";
 
 import { customFetch } from "../custom-fetch";
@@ -377,6 +377,93 @@ export const useGetSentiment = <
 };
 
 /**
+ * Commits all local changes and pushes to the configured GitHub remote
+ * @summary Sync local changes to GitHub
+ */
+export const getSyncGitUrl = () => {
+  return `/api/git/sync`;
+};
+
+export const syncGit = async (
+  gitSyncRequest?: GitSyncRequest,
+  options?: RequestInit,
+): Promise<GitSyncResponse> => {
+  return customFetch<GitSyncResponse>(getSyncGitUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(gitSyncRequest),
+  });
+};
+
+export const getSyncGitMutationOptions = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof syncGit>>,
+    TError,
+    { data: BodyType<GitSyncRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof syncGit>>,
+  TError,
+  { data: BodyType<GitSyncRequest> },
+  TContext
+> => {
+  const mutationKey = ["syncGit"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof syncGit>>,
+    { data: BodyType<GitSyncRequest> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return syncGit(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type SyncGitMutationResult = NonNullable<
+  Awaited<ReturnType<typeof syncGit>>
+>;
+export type SyncGitMutationBody = BodyType<GitSyncRequest>;
+export type SyncGitMutationError = ErrorType<unknown>;
+
+/**
+ * @summary Sync local changes to GitHub
+ */
+export const useSyncGit = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof syncGit>>,
+    TError,
+    { data: BodyType<GitSyncRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof syncGit>>,
+  TError,
+  { data: BodyType<GitSyncRequest> },
+  TContext
+> => {
+  return useMutation(getSyncGitMutationOptions(options));
+};
+
+/**
  * Get latest market news for trading assets
  * @summary Market news
  */
@@ -443,26 +530,6 @@ export type GetNewsQueryError = ErrorType<unknown>;
 /**
  * @summary Market news
  */
-
-/**
- * AI-powered deep stock analysis for any ticker
- * @summary Stock Analyzer
- */
-export const getAnalyzeStockUrl = () => {
-  return `/api/trading/stock-analyze`;
-};
-
-export const analyzeStock = async (
-  stockAnalyzeRequest: StockAnalyzeRequest,
-  options?: RequestInit,
-): Promise<StockAnalyzeResponse> => {
-  return customFetch<StockAnalyzeResponse>(getAnalyzeStockUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(stockAnalyzeRequest),
-  });
-};
 
 export function useGetNews<
   TData = Awaited<ReturnType<typeof getNews>>,

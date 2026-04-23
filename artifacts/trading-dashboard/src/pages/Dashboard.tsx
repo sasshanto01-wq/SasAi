@@ -5,6 +5,7 @@ import { SentimentPanel } from '@/components/panels/SentimentPanel';
 import { NewsPanel } from '@/components/panels/NewsPanel';
 import { AnalysePanel } from '@/components/panels/AnalysePanel';
 import { StockAnalyzerPanel } from '@/components/panels/StockAnalyzerPanel';
+import { GitSyncButton } from '@/components/GitSyncButton';
 import { LayoutDashboard, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -54,6 +55,8 @@ export default function Dashboard() {
               </button>
             ))}
           </div>
+
+          <GitSyncButton />
 
           {/* Timeframe Selector */}
           <div className="flex items-center gap-0.5 bg-black/70 p-0.5 rounded-lg border border-white/[0.06]">

@@ -11,6 +11,8 @@ tags:
     description: Health operations
   - name: trading
     description: Trading analysis operations
+  - name: git
+    description: Git sync operations
 paths:
   /healthz:
     get:
@@ -82,6 +84,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SentimentResponse"
+  /git/sync:
+    post:
+      operationId: syncGit
+      tags: [git]
+      summary: Sync local changes to GitHub
+      description: Commits all local changes and pushes to the configured GitHub remote
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GitSyncRequest"
+      responses:
+        "200":
+          description: Sync result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GitSyncResponse"
   /trading/news:
     get:
       operationId: getNews
@@ -261,6 +282,36 @@ components:
         - contrarySignal
         - summary
         - timestamp
+    GitSyncRequest:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Optional commit message override
+    GitSyncResponse:
+      type: object
+      properties:
+        ok:
+          type: boolean
+        status:
+          type: string
+          description: "pushed, nothing_to_commit, or failed"
+        commitSha:
+          type: string
+          description: SHA of the new commit (when one was created)
+        commitMessage:
+          type: string
+        pushedAt:
+          type: string
+        details:
+          type: string
+          description: Human-readable details (e.g. git output snippet)
+        error:
+          type: string
+      required:
+        - ok
+        - status
+        - pushedAt
     NewsArticle:
       type: object
       properties:
