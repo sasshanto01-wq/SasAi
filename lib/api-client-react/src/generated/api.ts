@@ -26,6 +26,8 @@ import type {
   NewsResponse,
   SentimentRequest,
   SentimentResponse,
+  StockAnalyzeRequest,
+  StockAnalyzeResponse,
   WhaleRequest,
   WhaleResponse,
 } from "./api.schemas";
@@ -374,6 +376,93 @@ export const useGetSentiment = <
   TContext
 > => {
   return useMutation(getGetSentimentMutationOptions(options));
+};
+
+/**
+ * AI-powered stock analysis using real financial data
+ * @summary AI stock analysis
+ */
+export const getAnalyzeStockUrl = () => {
+  return `/api/trading/stock-analyze`;
+};
+
+export const analyzeStock = async (
+  stockAnalyzeRequest: StockAnalyzeRequest,
+  options?: RequestInit,
+): Promise<StockAnalyzeResponse> => {
+  return customFetch<StockAnalyzeResponse>(getAnalyzeStockUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(stockAnalyzeRequest),
+  });
+};
+
+export const getAnalyzeStockMutationOptions = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof analyzeStock>>,
+    TError,
+    { data: BodyType<StockAnalyzeRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof analyzeStock>>,
+  TError,
+  { data: BodyType<StockAnalyzeRequest> },
+  TContext
+> => {
+  const mutationKey = ["analyzeStock"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof analyzeStock>>,
+    { data: BodyType<StockAnalyzeRequest> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return analyzeStock(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AnalyzeStockMutationResult = NonNullable<
+  Awaited<ReturnType<typeof analyzeStock>>
+>;
+export type AnalyzeStockMutationBody = BodyType<StockAnalyzeRequest>;
+export type AnalyzeStockMutationError = ErrorType<unknown>;
+
+/**
+ * @summary AI stock analysis
+ */
+export const useAnalyzeStock = <
+  TError = ErrorType<unknown>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof analyzeStock>>,
+    TError,
+    { data: BodyType<StockAnalyzeRequest> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof analyzeStock>>,
+  TError,
+  { data: BodyType<StockAnalyzeRequest> },
+  TContext
+> => {
+  return useMutation(getAnalyzeStockMutationOptions(options));
 };
 
 /**

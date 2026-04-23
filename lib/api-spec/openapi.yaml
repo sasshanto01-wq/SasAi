@@ -84,6 +84,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/SentimentResponse"
+  /trading/stock-analyze:
+    post:
+      operationId: analyzeStock
+      tags: [trading]
+      summary: AI stock analysis
+      description: AI-powered stock analysis using real financial data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StockAnalyzeRequest"
+      responses:
+        "200":
+          description: Stock analysis result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StockAnalyzeResponse"
   /git/sync:
     post:
       operationId: syncGit
@@ -281,6 +300,119 @@ components:
         - crowdBias
         - contrarySignal
         - summary
+        - timestamp
+    StockAnalyzeRequest:
+      type: object
+      properties:
+        ticker:
+          type: string
+      required:
+        - ticker
+    StockAnalyzeResponse:
+      type: object
+      properties:
+        ticker: { type: string }
+        companyName: { type: string }
+        exchange: { type: string }
+        sector: { type: string }
+        industry: { type: string }
+        currentPrice: { type: number, nullable: true }
+        previousClose: { type: number, nullable: true }
+        change: { type: number, nullable: true }
+        changePercent: { type: number, nullable: true }
+        marketCap: { type: string, nullable: true }
+        pe: { type: number, nullable: true }
+        forwardPE: { type: number, nullable: true }
+        eps: { type: number, nullable: true }
+        beta: { type: number, nullable: true }
+        week52High: { type: number, nullable: true }
+        week52Low: { type: number, nullable: true }
+        dividendYield: { type: number, nullable: true }
+        revenueGrowth: { type: number, nullable: true }
+        grossMargin: { type: number, nullable: true }
+        profitMargin: { type: number, nullable: true }
+        operatingMargin: { type: number, nullable: true }
+        returnOnEquity: { type: number, nullable: true }
+        debtToEquity: { type: number, nullable: true }
+        targetMeanPrice: { type: number, nullable: true }
+        recommendationKey: { type: string }
+        analystCounts:
+          type: object
+          properties:
+            strongBuy: { type: number }
+            buy: { type: number }
+            hold: { type: number }
+            sell: { type: number }
+            strongSell: { type: number }
+          required: [strongBuy, buy, hold, sell, strongSell]
+        hasRealData: { type: boolean }
+        verdict: { type: string }
+        verdictScore: { type: number }
+        confidence: { type: number }
+        priceTargetLow: { type: number, nullable: true }
+        priceTargetHigh: { type: number, nullable: true }
+        fundamentalScore: { type: number }
+        technicalScore: { type: number }
+        riskLevel: { type: string }
+        executiveSummary: { type: string }
+        bullCase: { type: string }
+        bearCase: { type: string }
+        keyStrengths:
+          type: array
+          items: { type: string }
+        keyRisks:
+          type: array
+          items: { type: string }
+        catalysts:
+          type: array
+          items: { type: string }
+        valuationComment: { type: string }
+        disclaimer: { type: string }
+        timestamp: { type: string }
+      required:
+        - ticker
+        - companyName
+        - exchange
+        - sector
+        - industry
+        - currentPrice
+        - previousClose
+        - change
+        - changePercent
+        - marketCap
+        - pe
+        - forwardPE
+        - eps
+        - beta
+        - week52High
+        - week52Low
+        - dividendYield
+        - revenueGrowth
+        - grossMargin
+        - profitMargin
+        - operatingMargin
+        - returnOnEquity
+        - debtToEquity
+        - targetMeanPrice
+        - recommendationKey
+        - analystCounts
+        - hasRealData
+        - verdict
+        - verdictScore
+        - confidence
+        - priceTargetLow
+        - priceTargetHigh
+        - fundamentalScore
+        - technicalScore
+        - riskLevel
+        - executiveSummary
+        - bullCase
+        - bearCase
+        - keyStrengths
+        - keyRisks
+        - catalysts
+        - valuationComment
+        - disclaimer
         - timestamp
     GitSyncRequest:
       type: object

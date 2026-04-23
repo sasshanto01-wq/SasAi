@@ -16,5 +16,8 @@ export * from "./newsArticle";
 export * from "./newsResponse";
 export * from "./sentimentRequest";
 export * from "./sentimentResponse";
+export * from "./stockAnalyzeRequest";
+export * from "./stockAnalyzeResponse";
+export * from "./stockAnalyzeResponseAnalystCounts";
 export * from "./whaleRequest";
 export * from "./whaleResponse";

@@ -102,6 +102,67 @@ export const GetSentimentResponse = zod.object({
 });
 
 /**
+ * AI-powered stock analysis using real financial data
+ * @summary AI stock analysis
+ */
+export const AnalyzeStockBody = zod.object({
+  ticker: zod.string(),
+});
+
+export const AnalyzeStockResponse = zod.object({
+  ticker: zod.string(),
+  companyName: zod.string(),
+  exchange: zod.string(),
+  sector: zod.string(),
+  industry: zod.string(),
+  currentPrice: zod.number().nullable(),
+  previousClose: zod.number().nullable(),
+  change: zod.number().nullable(),
+  changePercent: zod.number().nullable(),
+  marketCap: zod.string().nullable(),
+  pe: zod.number().nullable(),
+  forwardPE: zod.number().nullable(),
+  eps: zod.number().nullable(),
+  beta: zod.number().nullable(),
+  week52High: zod.number().nullable(),
+  week52Low: zod.number().nullable(),
+  dividendYield: zod.number().nullable(),
+  revenueGrowth: zod.number().nullable(),
+  grossMargin: zod.number().nullable(),
+  profitMargin: zod.number().nullable(),
+  operatingMargin: zod.number().nullable(),
+  returnOnEquity: zod.number().nullable(),
+  debtToEquity: zod.number().nullable(),
+  targetMeanPrice: zod.number().nullable(),
+  recommendationKey: zod.string(),
+  analystCounts: zod.object({
+    strongBuy: zod.number(),
+    buy: zod.number(),
+    hold: zod.number(),
+    sell: zod.number(),
+    strongSell: zod.number(),
+  }),
+  hasRealData: zod.boolean(),
+  verdict: zod.string(),
+  verdictScore: zod.number(),
+  confidence: zod.number(),
+  priceTargetLow: zod.number().nullable(),
+  priceTargetHigh: zod.number().nullable(),
+  fundamentalScore: zod.number(),
+  technicalScore: zod.number(),
+  riskLevel: zod.string(),
+  executiveSummary: zod.string(),
+  bullCase: zod.string(),
+  bearCase: zod.string(),
+  keyStrengths: zod.array(zod.string()),
+  keyRisks: zod.array(zod.string()),
+  catalysts: zod.array(zod.string()),
+  valuationComment: zod.string(),
+  disclaimer: zod.string(),
+  timestamp: zod.string(),
+});
+
+/**
  * Commits all local changes and pushes to the configured GitHub remote
  * @summary Sync local changes to GitHub
  */
